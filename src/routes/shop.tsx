@@ -4,18 +4,18 @@ import { FILTER_CATEGORIES, isFilterCategory, isSortOption, type CatalogFilters,
 import { MAX_PRICE } from "@/data/products";
 
 interface ShopSearch {
-  category?: FilterCategory;
-  sort?: SortOption;
-  max?: number;
-  colors?: string;
+  category?: FilterCategory | undefined;
+  sort?: SortOption | undefined;
+  max?: number | undefined;
+  colors?: string | undefined;
 }
 
 export const Route = createFileRoute("/shop")({
   validateSearch: (s: Record<string, unknown>): ShopSearch => ({
-    category: isFilterCategory(s.category) ? s.category : undefined,
-    sort: isSortOption(s.sort) ? s.sort : undefined,
-    max: typeof s.max === "number" && s.max >= 40 && s.max < MAX_PRICE ? s.max : undefined,
-    colors: typeof s.colors === "string" && s.colors ? s.colors : undefined,
+    category: isFilterCategory(s["category"]) ? s["category"] : undefined,
+    sort: isSortOption(s["sort"]) ? s["sort"] : undefined,
+    max: typeof s["max"] === "number" && s["max"] >= 40 && s["max"] < MAX_PRICE ? s["max"] : undefined,
+    colors: typeof s["colors"] === "string" && s["colors"] ? s["colors"] : undefined,
   }),
   head: () => ({
     meta: [
@@ -34,12 +34,12 @@ function Shop() {
   const search = Route.useSearch();
   const navigate = Route.useNavigate();
   const filters: CatalogFilters = {
-    category: search.category ?? defaultFilters.category,
-    sort: search.sort ?? defaultFilters.sort,
+    category: search.category ?? defaultFilters["category"],
+    sort: search.sort ?? defaultFilters["sort"],
     maxPrice: search.max ?? MAX_PRICE,
     colors: search.colors ? search.colors.split(",") : [],
   };
-  const title = FILTER_CATEGORIES.find((c) => c.value === filters.category)?.label ?? "All Products";
+  const title = FILTER_CATEGORIES.find((c) => c.value === filters["category"])?.label ?? "All Products";
 
   const onChange = (f: CatalogFilters) =>
     navigate({
@@ -56,7 +56,7 @@ function Shop() {
   return (
     <div className="mx-auto max-w-[1600px] px-5 pb-24 pt-32 md:px-10 md:pt-40">
       <p className="label text-muted-foreground">VANTA® / Shop</p>
-      <h1 className="display mt-4 text-7xl md:text-[9rem]">{filters.sort === "newest" && filters.category === "all" ? "New Arrivals" : title}</h1>
+      <h1 className="display mt-4 text-7xl md:text-[9rem]">{filters["sort"] === "newest" && filters["category"] === "all" ? "New Arrivals" : title}</h1>
       <div className="mt-12">
         <Catalog filters={filters} onChange={onChange} />
       </div>
