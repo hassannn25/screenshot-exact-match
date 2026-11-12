@@ -28,3 +28,11 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- The 3D sneaker (`src/components/vanta/Sneaker3D.tsx`) is browser-only; load it only through `Sneaker3DStage` (ClientOnly + lazy import + image fallback) so SSR never imports three.js and non-WebGL devices see a photo.
+- Product data lives in `src/data/products.ts`; filtering/sorting and pricing rules are pure functions in `src/lib/catalog.ts` and `src/lib/pricing.ts` so they stay unit-testable (`src/test/store-rules.test.ts`).
+- Bag, wishlist and last order persist in localStorage via `StoreProvider` (`src/lib/store.tsx`), read only after hydration to avoid SSR mismatches.
+- Checkout is a frontend-only simulation: never add real payment processing or collect card details.
+- The `/shop` filters are mirrored in URL search params so nav links and shared URLs open pre-filtered.
