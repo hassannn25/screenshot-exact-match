@@ -142,7 +142,7 @@ function RootComponent() {
         </main>
         <Footer />
         <CartDrawer />
-        <Toaster position="bottom-center" />
+        <Toaster theme="dark" position="bottom-center" />
       </StoreProvider>
     </QueryClientProvider>
   );

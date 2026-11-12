@@ -94,7 +94,7 @@ function ProductPage() {
         </nav>
       </div>
 
-      <div className="mx-auto grid max-w-[1600px] gap-10 px-5 pb-24 md:px-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+      <div className="mx-auto grid max-w-[1600px] gap-10 px-5 pb-24 md:px-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-16">
         {/* Gallery */}
         <div className="flex flex-col-reverse gap-4 md:flex-row">
           <div className="flex gap-3 md:flex-col">
@@ -134,7 +134,7 @@ function ProductPage() {
         {/* Info */}
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="label text-muted-foreground">{product.tagline}</p>
-          <h1 className="display mt-3 text-5xl md:text-7xl">{product.name}</h1>
+          <h1 className="display mt-3 break-words text-5xl md:text-6xl xl:text-7xl">{product.name}</h1>
           <p className="mt-4 font-mono text-2xl">{formatPrice(product.price)}</p>
           <p className="mt-6 max-w-lg leading-relaxed text-foreground/80">{product.description}</p>
 

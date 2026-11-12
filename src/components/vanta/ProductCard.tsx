@@ -143,7 +143,7 @@ export function ProductCard({ product, index = 0, eager = false }: { product: Pr
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
             <p className="label text-muted-foreground">{categoryLabel[product.category]}</p>
-            <h3 className="display-wide mt-1.5 overflow-hidden text-sm">
+            <h3 className="display-wide mt-1.5 text-sm">
               <span className="block transition-transform duration-500 ease-expo group-hover:translate-x-1">
                 {product.name}
               </span>
