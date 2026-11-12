@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { Banknote, Check, CreditCard, Loader2, Lock } from "lucide-react";
-import { getProduct } from "@/data/products";
+import { getProduct, imageFor } from "@/data/products";
 import { useStore, type CartLine } from "@/lib/store";
 import { checkoutSchema, type CheckoutForm } from "@/lib/checkout";
 import { formatPrice, makeOrderReference, cartTotals } from "@/lib/pricing";
@@ -206,7 +206,7 @@ function CheckoutPage() {
                 return (
                   <li key={l.key} className="flex gap-4">
                     <div className="relative">
-                      <img src={p.images[0]} alt="" width={64} height={80} className="h-20 w-16 rounded-sm object-cover" />
+                      <img src={imageFor(p, l.color)} alt="" width={64} height={80} className="h-20 w-16 rounded-sm object-cover" />
                       <span className="absolute -right-2 -top-2 grid size-5 place-items-center rounded-full bg-foreground font-mono text-[10px] text-background">{l.quantity}</span>
                     </div>
                     <div className="flex-1">

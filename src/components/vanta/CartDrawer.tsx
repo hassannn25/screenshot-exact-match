@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { getProduct } from "@/data/products";
+import { getProduct, imageFor } from "@/data/products";
 import { useStore } from "@/lib/store";
 import { FREE_SHIPPING_THRESHOLD, formatPrice } from "@/lib/pricing";
 
@@ -75,7 +75,7 @@ export function CartDrawer() {
                         onClick={() => setCartOpen(false)}
                         className="block h-28 w-22 shrink-0 overflow-hidden rounded-sm bg-background"
                       >
-                        <img src={p.images[0]} alt={p.name} width={88} height={112} className="h-full w-full object-cover" />
+                        <img src={imageFor(p, line.color)} alt={p.name} width={88} height={112} className="h-full w-full object-cover" />
                       </Link>
                       <div className="flex min-w-0 flex-1 flex-col">
                         <div className="flex items-start justify-between gap-3">

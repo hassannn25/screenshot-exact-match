@@ -9,7 +9,9 @@ import pufferAlt from "@/assets/alt-puffer.jpg";
 import crossbody from "@/assets/p-crossbody.jpg";
 import track from "@/assets/p-track.jpg";
 import everyday from "@/assets/p-everyday.jpg";
-import phantom from "@/assets/p-phantom.jpg";
+import phantomOnyx from "@/assets/p-phantom-street.jpg";
+import phantomMidnight from "@/assets/p-phantom-midnight.jpg";
+import phantomRose from "@/assets/p-phantom-beach.jpg";
 import colStreet from "@/assets/col-street.jpg";
 import colPerformance from "@/assets/col-performance.jpg";
 import colLuxury from "@/assets/col-luxury.jpg";
@@ -33,6 +35,8 @@ export interface Product {
   colors: [ProductColor, ...ProductColor[]];
   sizes: [string, ...string[]];
   images: [string, ...string[]];
+  /** Optional per-color main image (used for bag thumbnails). */
+  colorImages?: Record<string, string>;
   badge?: "New" | "Bestseller" | "Limited";
   /** Higher = newer drop. */
   dropOrder: number;
@@ -48,9 +52,9 @@ const C = {
   silver: { name: "Silver", swatch: "oklch(0.82 0.01 250)" },
   white: { name: "White", swatch: "oklch(0.97 0 0)" },
   olive: { name: "Olive", swatch: "oklch(0.45 0.05 120)" },
-  midnight: { name: "Midnight", swatch: "oklch(0.25 0.03 260)" },
-  sand: { name: "Sand", swatch: "oklch(0.8 0.05 75)" },
-  street: { name: "Street", swatch: "oklch(0.55 0.08 30)" },
+  onyx: { name: "Onyx", swatch: "oklch(0.2 0 0)" },
+  midnight: { name: "Midnight", swatch: "oklch(0.45 0.12 250)" },
+  rose: { name: "Rose", swatch: "oklch(0.62 0.06 10)" },
 } satisfies Record<string, ProductColor>;
 
 const APPAREL: [string, ...string[]] = ["XS", "S", "M", "L", "XL", "XXL"];
@@ -238,9 +242,10 @@ export const products: Product[] = [
     price: 165,
     category: "footwear",
     genders: ["men", "women"],
-    colors: [C.midnight, C.sand, C.street],
+    colors: [C.onyx, C.midnight, C.rose],
     sizes: SHOES,
-    images: [phantom],
+    images: [phantomOnyx, phantomMidnight, phantomRose],
+    colorImages: { Onyx: phantomOnyx, Midnight: phantomMidnight, Rose: phantomRose },
     badge: "Limited",
     dropOrder: 10,
     tagline: "Engineered for expression.",
@@ -256,6 +261,10 @@ export const products: Product[] = [
 ];
 
 export const FEATURED_SLUG = "vanta-phantom-01";
+
+export function imageFor(p: Product, color?: string) {
+  return (color && p.colorImages?.[color]) || p.images[0];
+}
 
 export function getProduct(slug: string) {
   return products.find((p) => p.slug === slug);

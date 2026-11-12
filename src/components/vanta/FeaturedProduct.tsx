@@ -13,7 +13,7 @@ import { Reveal, SectionLabel } from "./Reveal";
 import { AddedBurst } from "./AddedBurst";
 import { cn } from "@/lib/utils";
 
-const VARIANT_BY_COLOR: Record<string, SneakerVariant> = { Midnight: "midnight", Sand: "beach", Street: "street" };
+const VARIANT_BY_COLOR: Record<string, SneakerVariant> = { Onyx: "street", Midnight: "midnight", Rose: "beach" };
 
 const HOTSPOTS: Hotspot[] = [
   { id: "upper", title: "Layered upper", copy: "Suede overlays on breathable mesh — structure where you need it, air where you don't.", position: [0.06, 0.085, 0.04] },
@@ -64,7 +64,7 @@ export function FeaturedProduct() {
               </p>
               <Sneaker3DStage
                 mode="showcase"
-                variant={VARIANT_BY_COLOR[color] ?? "midnight"}
+                variant={VARIANT_BY_COLOR[color] ?? "street"}
                 hotspots={HOTSPOTS}
                 activeHotspot={hotspot}
                 onHotspot={setHotspot}

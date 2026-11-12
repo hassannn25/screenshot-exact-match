@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero-editorial.jpg";
-import phantomImg from "@/assets/p-phantom.jpg";
+import phantomImg from "@/assets/p-phantom-street.jpg";
 import { Button } from "@/components/ui/button";
 import { Sneaker3DStage } from "./Sneaker3DStage";
 
@@ -62,6 +62,7 @@ export function HeroSection() {
       >
         <Sneaker3DStage
           mode="hero"
+          variant="street"
           fallback={
             <div className="grid h-full w-full place-items-center">
               <img src={phantomImg} alt="" aria-hidden className="h-[80%] w-auto animate-float object-contain mix-blend-screen" />
