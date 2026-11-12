@@ -58,7 +58,7 @@ export function HeroSection() {
       {/* 3D product */}
       <motion.div
         style={{ opacity: fade }}
-        className="absolute inset-x-0 top-[10%] h-[42%] md:inset-x-auto md:right-0 md:top-[6%] md:h-[62%] md:w-[55%]"
+        className="absolute inset-x-0 top-[8%] h-[26%] md:inset-x-auto md:right-0 md:top-[6%] md:h-[62%] md:w-[55%]"
       >
         <Sneaker3DStage
           mode="hero"

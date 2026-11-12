@@ -89,7 +89,7 @@ function ProductPage() {
       <div className="mx-auto max-w-[1600px] px-5 py-6 md:px-10">
         <nav className="label flex gap-2 text-muted-foreground" aria-label="Breadcrumb">
           <Link to="/" className="hover:text-foreground">Home</Link> /
-          <Link to="/shop" search={{ category: product.category }} className="hover:text-foreground capitalize">{product.category}</Link> /
+          <Link to="/shop" search={{ category: product.category }} className="hover:text-foreground">{product.category}</Link> /
           <span className="text-foreground">{product.name}</span>
         </nav>
       </div>
