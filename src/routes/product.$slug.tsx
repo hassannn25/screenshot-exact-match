@@ -65,7 +65,7 @@ function ProductPage() {
 
   const views =
     product.images.length > 1
-      ? product.images.map((src, i) => ({ src, crop: "", name: i === 0 ? "Product" : "Editorial" })).concat([{ src: product.images[0], crop: VIEW_CROPS[1], name: "Detail" }])
+      ? product.images.map((src, i) => ({ src, crop: "", name: i === 0 ? "Product" : "Editorial" })).concat([{ src: product.images[0], crop: VIEW_CROPS[1] ?? "", name: "Detail" }])
       : VIEW_CROPS.map((crop, i) => ({ src: product.images[0], crop, name: VIEW_NAMES[i] ?? "View" }));
 
   const current = views[view] ?? views[0]!;
