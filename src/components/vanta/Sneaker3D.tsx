@@ -164,6 +164,7 @@ export default function Sneaker3D({
 }: Sneaker3DProps) {
   const isHero = mode === "hero";
   const [mobile] = useState(() => window.innerWidth < 768);
+  const [still] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   return (
     <Canvas
@@ -186,8 +187,8 @@ export default function Sneaker3D({
       <spotLight position={[-5, 3, -3]} angle={0.4} penumbra={1} intensity={25} color="#cfd8e6" />
       <Suspense fallback={null}>
         {isHero ? (
-          <Float speed={1.6} rotationIntensity={0.25} floatIntensity={0.6} floatingRange={[-0.05, 0.12]}>
-            <SneakerModel variant={variant} autoRotate pointerTilt={!mobile} />
+          <Float speed={still ? 0 : 1.6} rotationIntensity={0.25} floatIntensity={0.6} floatingRange={[-0.05, 0.12]}>
+            <SneakerModel variant={variant} autoRotate={!still} pointerTilt={!mobile && !still} />
           </Float>
         ) : (
           <PresentationControls
@@ -200,10 +201,10 @@ export default function Sneaker3D({
             polar={[-0.2, 0.3]}
             azimuth={[-Infinity, Infinity]}
           >
-            <Float speed={1.2} rotationIntensity={0.1} floatIntensity={0.35}>
+            <Float speed={still ? 0 : 1.2} rotationIntensity={0.1} floatIntensity={0.35}>
               <SneakerModel
                 variant={variant}
-                autoRotate={!activeHotspot}
+                autoRotate={!activeHotspot && !still}
                 pointerTilt={false}
                 hotspots={hotspots}
                 activeHotspot={activeHotspot}
