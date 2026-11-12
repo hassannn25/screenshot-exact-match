@@ -65,7 +65,7 @@ export function HeroSection() {
           variant="street"
           fallback={
             <div className="grid h-full w-full place-items-center">
-              <img src={phantomImg} alt="" aria-hidden className="h-[80%] w-auto animate-float object-contain mix-blend-screen" />
+              <img src={phantomImg} alt="" aria-hidden className="mask-fade h-[80%] w-auto animate-float object-contain" />
             </div>
           }
         />

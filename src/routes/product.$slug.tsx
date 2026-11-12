@@ -151,6 +151,9 @@ function ProductPage() {
                   onClick={() => {
                     setColor(c.name);
                     setErrors((e) => ({ ...e, color: false }));
+                    const img = product.colorImages?.[c.name];
+                    const idx = img ? views.findIndex((v) => v.src === img && !v.crop) : -1;
+                    if (idx >= 0) setView(idx);
                   }}
                   className={cn(
                     "label flex items-center gap-2 rounded-full border px-4 py-2.5 transition-colors",

@@ -255,6 +255,10 @@
   }
 }
 
+@utility mask-fade {
+  mask-image: radial-gradient(ellipse 50% 45% at 50% 55%, black 55%, transparent 100%);
+}
+
 @utility ease-expo {
   transition-timing-function: var(--ease-out-expo);
 }
