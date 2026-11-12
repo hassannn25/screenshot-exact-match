@@ -58,7 +58,7 @@ export function HeroSection() {
       {/* 3D product */}
       <motion.div
         style={{ opacity: fade }}
-        className="absolute inset-x-0 top-[12%] h-[48%] md:inset-x-auto md:right-0 md:top-[8%] md:h-[78%] md:w-[58%]"
+        className="absolute inset-x-0 top-[10%] h-[42%] md:inset-x-auto md:right-0 md:top-[6%] md:h-[62%] md:w-[55%]"
       >
         <Sneaker3DStage
           mode="hero"
@@ -68,9 +68,9 @@ export function HeroSection() {
             </div>
           }
         />
-        <FloatTag className="left-[14%] top-[18%]" label="Edition" value="Phantom 01" delay={1.2} />
-        <FloatTag className="right-[12%] top-[30%]" label="Material" value="Suede / Mesh" delay={1.4} />
-        <FloatTag className="bottom-[16%] left-[30%]" label="Season" value="SS — 26" delay={1.6} />
+        <FloatTag className="left-[10%] top-[22%]" label="Edition" value="Phantom 01" delay={1.2} />
+        <FloatTag className="right-[8%] top-[18%]" label="Material" value="Suede / Mesh" delay={1.4} />
+        <FloatTag className="bottom-[4%] right-[14%]" label="Season" value="SS — 26" delay={1.6} />
       </motion.div>
 
       {/* Copy */}

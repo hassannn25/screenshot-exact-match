@@ -173,7 +173,7 @@ export default function Sneaker3D({
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       style={{ touchAction: isHero ? "auto" : "pan-y" }}
     >
-      <ResponsiveCamera mobileZ={isHero ? 7.8 : 7} desktopZ={isHero ? 6 : 5.4} />
+      <ResponsiveCamera mobileZ={isHero ? 8.5 : 7} desktopZ={isHero ? 6.8 : 5.4} />
       <ambientLight intensity={0.25} />
       <spotLight
         position={[4, 6, 4]}

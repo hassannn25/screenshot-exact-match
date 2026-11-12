@@ -116,7 +116,7 @@ function Refinements({ filters, onChange }: CatalogProps) {
 function SortSelect({ filters, onChange }: CatalogProps) {
   return (
     <Select value={filters.sort} onValueChange={(v) => onChange({ ...filters, sort: v as CatalogFilters["sort"] })}>
-      <SelectTrigger aria-label="Sort products" className="label h-10 w-[210px] rounded-full border-foreground/15 bg-transparent px-4">
+      <SelectTrigger aria-label="Sort products" className="label h-10 w-[210px] text-[0.68rem] rounded-full border-foreground/15 bg-transparent px-4">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>

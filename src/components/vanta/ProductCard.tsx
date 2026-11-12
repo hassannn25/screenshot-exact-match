@@ -92,7 +92,7 @@ export function ProductCard({ product, index = 0, eager = false }: { product: Pr
         </button>
 
         {/* Quick add */}
-        <div className="absolute inset-x-3 bottom-3">
+        <div className={cn("absolute inset-x-3 bottom-3 transition-all duration-500 ease-expo", !quickOpen && "md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:focus-within:translate-y-0 md:focus-within:opacity-100")}>
           <AnimatePresence mode="wait">
             {quickOpen ? (
               <motion.div
@@ -130,7 +130,7 @@ export function ProductCard({ product, index = 0, eager = false }: { product: Pr
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 12 }}
                 onClick={() => (product.sizes.length === 1 ? quickAdd(product.sizes[0]) : setQuickOpen(true))}
-                className="glass label flex w-full items-center justify-center gap-2 rounded-full py-3 transition-all duration-500 ease-expo hover:bg-foreground hover:text-background md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:focus-visible:translate-y-0 md:focus-visible:opacity-100"
+                className="glass label flex w-full items-center justify-center gap-2 rounded-full py-3 transition-colors duration-300 hover:bg-foreground hover:text-background"
               >
                 <Plus className="size-3.5" /> Quick add
               </motion.button>
