@@ -148,7 +148,7 @@ export function Navbar() {
             >
               <motion.div key={hovered.id} initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="mx-auto grid max-w-[1600px] grid-cols-[220px_1fr] gap-10 px-10 py-8">
                 <div className="flex flex-col justify-between">
-                  <p className="display text-5xl">{hovered.label}</p>
+                  <p className="display text-4xl">{hovered.label}</p>
                   <Link to="/shop" search={hovered.search} className="label flex items-center gap-2 text-muted-foreground hover:text-foreground">
                     Shop all <ArrowUpRight className="size-3.5" />
                   </Link>

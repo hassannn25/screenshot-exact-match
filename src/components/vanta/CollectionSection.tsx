@@ -23,7 +23,7 @@ export function CollectionSection() {
               <div className="absolute inset-0 bg-ink/20 transition-colors duration-700 group-hover:bg-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
                 <p className="label text-signal">{c.num}</p>
-                <h3 className="display mt-3 text-5xl md:text-6xl xl:text-7xl">{c.title}</h3>
+                <h3 className="display mt-3 text-5xl md:text-[clamp(2.5rem,4.2vw,4.5rem)]">{c.title}</h3>
                 <p className="mt-3 max-w-xs text-sm text-foreground/75">{c.copy}</p>
                 <span className="label mt-6 inline-flex items-center gap-2 rounded-full border border-foreground/30 px-5 py-3 transition-all duration-500 group-hover:border-foreground group-hover:bg-foreground group-hover:text-background">
                   Explore collection <ArrowUpRight className="size-3.5" />
