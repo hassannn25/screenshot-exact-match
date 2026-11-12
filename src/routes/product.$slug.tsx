@@ -68,6 +68,7 @@ function ProductPage() {
       ? product.images.map((src, i) => ({ src, crop: "", name: i === 0 ? "Product" : "Editorial" })).concat([{ src: product.images[0], crop: VIEW_CROPS[1], name: "Detail" }])
       : VIEW_CROPS.map((crop, i) => ({ src: product.images[0], crop, name: VIEW_NAMES[i] }));
 
+  const current = views[view] ?? views[0]!;
   const related = products.filter((p) => p.slug !== product.slug && p.category === product.category).concat(products.filter((p) => p.category !== product.category)).slice(0, 4);
 
   const add = () => {
@@ -114,15 +115,15 @@ function ProductPage() {
             <AnimatePresence mode="popLayout" initial={false}>
               <motion.img
                 key={view}
-                src={views[view].src}
-                alt={`${product.name} — ${views[view].name}`}
+                src={current.src}
+                alt={`${product.name} — ${current.name}`}
                 width={960}
                 height={1200}
                 initial={{ opacity: 0, scale: 1.04 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className={cn("absolute inset-0 h-full w-full object-cover", views[view].crop)}
+                className={cn("absolute inset-0 h-full w-full object-cover", current.crop)}
               />
             </AnimatePresence>
             {product.badge && <span className="label absolute left-4 top-4 rounded-full bg-foreground px-3 py-1.5 text-background">{product.badge}</span>}

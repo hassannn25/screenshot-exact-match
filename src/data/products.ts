@@ -30,9 +30,9 @@ export interface Product {
   price: number;
   category: Category;
   genders: Gender[];
-  colors: ProductColor[];
-  sizes: string[];
-  images: string[];
+  colors: [ProductColor, ...ProductColor[]];
+  sizes: [string, ...string[]];
+  images: [string, ...string[]];
   badge?: "New" | "Bestseller" | "Limited";
   /** Higher = newer drop. */
   dropOrder: number;
@@ -53,9 +53,9 @@ const C = {
   street: { name: "Street", swatch: "oklch(0.55 0.08 30)" },
 } satisfies Record<string, ProductColor>;
 
-const APPAREL = ["XS", "S", "M", "L", "XL", "XXL"];
-const SHOES = ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"];
-const ONE = ["One Size"];
+const APPAREL: [string, ...string[]] = ["XS", "S", "M", "L", "XL", "XXL"];
+const SHOES: [string, ...string[]] = ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"];
+const ONE: [string, ...string[]] = ["One Size"];
 
 export const products: Product[] = [
   {

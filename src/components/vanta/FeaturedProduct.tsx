@@ -64,7 +64,7 @@ export function FeaturedProduct() {
               </p>
               <Sneaker3DStage
                 mode="showcase"
-                variant={VARIANT_BY_COLOR[color]}
+                variant={VARIANT_BY_COLOR[color] ?? "midnight"}
                 hotspots={HOTSPOTS}
                 activeHotspot={hotspot}
                 onHotspot={setHotspot}

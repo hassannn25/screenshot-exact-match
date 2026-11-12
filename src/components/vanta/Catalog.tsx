@@ -73,7 +73,7 @@ function Refinements({ filters, onChange }: CatalogProps) {
           max={MAX_PRICE}
           step={5}
           value={[filters.maxPrice]}
-          onValueChange={([v]) => onChange({ ...filters, maxPrice: v })}
+          onValueChange={([v]) => onChange({ ...filters, maxPrice: v ?? MAX_PRICE })}
           aria-label="Maximum price"
         />
         <div className="label mt-2 flex justify-between text-muted-foreground">

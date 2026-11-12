@@ -29,9 +29,9 @@ interface ModelProps {
   variant: SneakerVariant;
   autoRotate: boolean;
   pointerTilt: boolean;
-  hotspots?: Hotspot[];
-  activeHotspot?: string | null;
-  onHotspot?: (id: string | null) => void;
+  hotspots?: Hotspot[] | undefined;
+  activeHotspot?: string | null | undefined;
+  onHotspot?: ((id: string | null) => void) | undefined;
 }
 
 const MODEL_URL = sneakerAsset.url;
@@ -48,7 +48,7 @@ function SneakerModel({ variant, autoRotate, pointerTilt, hotspots, activeHotspo
   useEffect(() => {
     let alive = true;
     const mesh = scene.getObjectByProperty("type", "Mesh") as THREE.Mesh | undefined;
-    const mappings = (mesh?.userData?.gltfExtensions?.KHR_materials_variants?.mappings ?? []) as {
+    const mappings = (mesh?.userData?.["gltfExtensions"]?.KHR_materials_variants?.mappings ?? []) as {
       material: number;
       variants: number[];
     }[];
@@ -140,14 +140,14 @@ function Studio() {
 
 export interface Sneaker3DProps {
   mode: "hero" | "showcase";
-  variant?: SneakerVariant;
-  hotspots?: Hotspot[];
-  activeHotspot?: string | null;
-  onHotspot?: (id: string | null) => void;
-  onReady?: () => void;
+  variant?: SneakerVariant | undefined;
+  hotspots?: Hotspot[] | undefined;
+  activeHotspot?: string | null | undefined;
+  onHotspot?: ((id: string | null) => void) | undefined;
+  onReady?: (() => void) | undefined;
 }
 
-function ReadySignal({ onReady }: { onReady?: () => void }) {
+function ReadySignal({ onReady }: { onReady?: (() => void) | undefined }) {
   useEffect(() => {
     onReady?.();
   }, [onReady]);
